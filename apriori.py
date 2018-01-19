@@ -1,7 +1,7 @@
 import itertools
 from itertools import chain
 threshold=0.25
-confidence=0.25
+confidence=1
 
 file_name="transaction.txt"
 
@@ -94,8 +94,3 @@ def calculate_assoc_rule(frequent_set,support_set):
                 print("Assoc rule {} --> {} with Confidence : {}".format(current_candid,remain_candid,current_confidence))
 
 calculate_assoc_rule(frequent_set,support_set)
-
-
-
-
-
