@@ -66,31 +66,36 @@ while True:
     
 print("Frequent set : {} with suuport : {}".format(frequent_set,support_set))
 
-candid_support={}
-for i in range(len(frequent_set)):
-    candid_support[frequent_set[i]]=support_set[i]
 
 
-def calculate_assoc_rule(frequent_set,support_set):
 
-    for i in range(len(frequent_set)):
-        current_element=set(frequent_set[i])
-        all_candid=[]
-        for j in range(1,len(current_element)):
-            all_candid.append(map(set,itertools.combinations(current_element,j)))
 
-        all_candid=list(chain.from_iterable(all_candid))
 
-        for j in range(len(all_candid)):
-            current_candid=all_candid[j]
-            remain_candid=current_element-current_candid
-            total_candid=current_candid.union(remain_candid)
-            total_candid=tuple(total_candid)
-            current_candid=tuple(current_candid)
-            remain_candid=tuple(remain_candid)
+# # reamining code for finding association rule
+# candid_support={}
+# for i in range(len(frequent_set)):
+#     candid_support[frequent_set[i]]=support_set[i]
 
-            current_confidence=candid_support[total_candid]/float(candid_support[current_candid])
-            if(current_confidence>=confidence):
-                print("Assoc rule {} --> {} with Confidence : {}".format(current_candid,remain_candid,current_confidence))
+# def calculate_assoc_rule(frequent_set,support_set):
 
-calculate_assoc_rule(frequent_set,support_set)
+#     for i in range(len(frequent_set)):
+#         current_element=set(frequent_set[i])
+#         all_candid=[]
+#         for j in range(1,len(current_element)):
+#             all_candid.append(map(set,itertools.combinations(current_element,j)))
+
+#         all_candid=list(chain.from_iterable(all_candid))
+
+#         for j in range(len(all_candid)):
+#             current_candid=all_candid[j]
+#             remain_candid=current_element-current_candid
+#             total_candid=current_candid.union(remain_candid)
+#             total_candid=tuple(total_candid)
+#             current_candid=tuple(current_candid)
+#             remain_candid=tuple(remain_candid)
+
+#             current_confidence=candid_support[total_candid]/float(candid_support[current_candid])
+#             if(current_confidence>=confidence):
+#                 print("Assoc rule {} --> {} with Confidence : {}".format(current_candid,remain_candid,current_confidence))
+
+# calculate_assoc_rule(frequent_set,support_set)
