@@ -14,6 +14,9 @@ for s in default:
 
 total_rows=len(data)
 
+
+
+
 frequent_set=[]
 support_set=[]
 # class for calculating the frequent set
