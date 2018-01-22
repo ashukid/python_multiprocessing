@@ -8,7 +8,7 @@ import pyfpgrowth
 
 import time
 # reading file as lines of string
-with open("transaction.txt") as file:
+with open("categories.txt") as file:
     default=file.read().splitlines()
 
 # converting the strings into list type
@@ -21,23 +21,23 @@ for s in default:
 oht = OnehotTransactions()
 dataNew = oht.fit(data).transform(data)
 dataNew=pd.DataFrame(dataNew,columns=oht.columns_)
-
+print(dataNew.head())
 
 # print(dataNew.head())
-# apriori algorithm, parameter are give
-t1=time.time()
-frequent_itemsets = apriori(dataNew, min_support=0.1, use_colnames=True) 
-assoc_rules=association_rules(frequent_itemsets, metric="lift", min_threshold=0.1)
-print("using apriori : {}".format(time.time()-t1))
-print(frequent_itemsets)
-print(assoc_rules)
+# # apriori algorithm, parameter are given
+# t1=time.time()
+# frequent_itemsets = apriori(dataNew, min_support=0.1, use_colnames=True) 
+# assoc_rules=association_rules(frequent_itemsets, metric="lift", min_threshold=0.1)
+# print("using apriori : {}".format(time.time()-t1))
+# # print(assoc_rules)
 
-t2=time.time()
-frequent_itemsets=pyfpgrowth.find_frequent_patterns(data,7718)
-rules = pyfpgrowth.generate_association_rules(frequent_itemsets, 0.1)
-print("using fp_growth : {}".format(time.time()-t2))
-print(frequent_itemsets)
-print(rules)
+# # fp-growth algorithm, prameters are given
+# t2=time.time()
+# frequent_itemsets=pyfpgrowth.find_frequent_patterns(data,4000)
+# rules = pyfpgrowth.generate_association_rules(frequent_itemsets, 0.1)
+# print("using fp_growth : {}".format(time.time()-t2))
+# print(frequent_itemsets)
+# # print(rules)
 
 
 

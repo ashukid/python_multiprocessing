@@ -8,7 +8,7 @@ from multiprocessing import Pool
 import time
 
 
-with open("transaction.txt") as file:
+with open("categories.txt") as file:
     default=file.read().splitlines()
 data=[]
 for s in default:
@@ -29,7 +29,7 @@ dataNew4=dataNew.loc[3*offset:,:]
 
 # Function that calculated the frequent dataset parallely
 def calculate_frequent_itemset(fractional_data):
-	ans=apriori(fractional_data, min_support=0.1, use_colnames=True) 
+	ans=apriori(fractional_data, min_support=0.2, use_colnames=True) 
 	return ans
 
 # creating the pool object
@@ -95,3 +95,7 @@ final_frequent_itemsets=pd.DataFrame({'support':final_support,'itemsets':final_i
 print(final_frequent_itemsets.head())
 assoc_rules=association_rules(final_frequent_itemsets, metric="lift", min_threshold=0.1)
 print(assoc_rules)
+
+
+if __name__ == '__main__':
+    freeze_support()
