@@ -40,4 +40,32 @@ print(dataNew.head())
 # # print(rules)
 
 
+support=[]
+confidence=[]
+antecedants=[]
+consequents=[]
 
+for i in rules.keys():
+	antecedants.append(i)
+	consequents.append(rules[i][0])
+	confidence.append(rules[i][1])
+	support.append(rules[i][1]*float(frequent_itemsets[i]/float(len(data))))
+
+ante = []
+for items in antecedants:
+	temp=[]
+	for j in items:
+		x=j.split("=")
+		temp.append(x[0])
+	ante.append(temp)
+
+conse=[]
+for items in consequents:
+	temp=[]
+	for j in items:
+		x=j.split("=")
+		temp.append(x[0])
+	conse.append(temp)
+
+for i in range(len(confidence)):
+    print('{} -> {} = {} | {}'.format(antecedants[i],consequents[i],support[i],confidence[i]))
