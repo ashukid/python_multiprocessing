@@ -66,10 +66,10 @@ for i in range(len(frequent_itemsets2)):
 	frequent_dict2[tuple(frequent_itemsets2[i][1])]=frequent_itemsets2[i][0]
 	unique.add(tuple(frequent_itemsets2[i][1]))
 for i in range(len(frequent_itemsets3)):
-	frequent_dict2[tuple(frequent_itemsets3[i][1])]=frequent_itemsets3[i][0]
+	frequent_dict3[tuple(frequent_itemsets3[i][1])]=frequent_itemsets3[i][0]
 	unique.add(tuple(frequent_itemsets3[i][1]))
 for i in range(len(frequent_itemsets4)):
-	frequent_dict2[tuple(frequent_itemsets4[i][1])]=frequent_itemsets4[i][0]
+	frequent_dict4[tuple(frequent_itemsets4[i][1])]=frequent_itemsets4[i][0]
 	unique.add(tuple(frequent_itemsets4[i][1]))
 
 
